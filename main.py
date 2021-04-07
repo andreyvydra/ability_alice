@@ -65,8 +65,9 @@ def handle_dialog(req, res):
                 res['response']['end_session'] = True
                 return
             else:
-                res['response']['text'] = 'Слона можно найти на Яндекс.Маркете!'
+                res['response']['text'] = 'Слона можно найти на Яндекс.Маркете! А что насчёт кролика?'
                 sessionStorage[user_id]['is_bought_elephant'] = True
+                res['response']['buttons'] = get_suggests(user_id)
                 return
 
     if not sessionStorage[user_id]['is_bought_elephant']:
